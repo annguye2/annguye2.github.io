@@ -1,0 +1,11 @@
+.imgDiv{
+  width: 50%;
+  height: 250px;
+  background: red;
+  /*background-image: url('../images/game_cards/diamond/diamond-2.jpeg')*/
+}
+img{
+
+  height: 400px;
+  width: 500px;
+}

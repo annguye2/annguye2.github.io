@@ -8,13 +8,15 @@ var Game = function (newCards) {// 3 dealed card out for each PlayerCards
   this.getPoint = function (){ //get current point
     return point;
   }
-
+  this.getCards = function (){
+    return cards;
+  }
   this.calculatePoint = function (){ // calculatePoint from current ground
     var total = 0 ;
     for (var i = 0; i < cards.length; i++) {
       total += cards[i].point;
     }
-     point = (total % 10);
+    point = (total % 10);
   }
 
   this.tripleHand = function (){// check triple hand
@@ -24,13 +26,12 @@ var Game = function (newCards) {// 3 dealed card out for each PlayerCards
 
   this.figureHand = function(){// check if the cards are figureHand
     return ( (cards[0].figure &&  cards[1].figure && cards[2].figure) &&
-           ((cards[0].figureType != cards[1].figureType) || ( cards[1].figureType != cards[2].figureType )))
+    ((cards[0].figureType != cards[1].figureType) || ( cards[1].figureType != cards[2].figureType )))
   }
 
   this.tripleFigureHand = function(){// check if the cards are triplel-figure hand
     return ((cards[0].figureType == cards[1].figureType) && (cards[1].figureType == cards[2].figureType))
 
   }
-
 
 }// end Cards class

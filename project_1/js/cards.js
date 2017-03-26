@@ -482,3 +482,12 @@ var cards =[
   }
   // Group club
 ]// end of card object
+
+
+//  This is special hands result with value
+
+// var specialHands = [
+//   'Figure-Hand' : 5,
+//   'Triple-Hand' : 10,
+//   'Triple-Figure-Hand': 15
+// ]
