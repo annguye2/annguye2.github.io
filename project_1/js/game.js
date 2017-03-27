@@ -18,19 +18,25 @@ var Game = function (newCards) {// 3 dealed card out for each PlayerCards
     }
     point = (total % 10);
   }
-
+ this.setPoint  =  function(newPoint){
+   point = newPoint;
+ }
   this.tripleHand = function (){// check triple hand
     // the cards are triple hand when they all have the same points and not any figure
-    return ((cards[0].point === cards[1].point) && (cards[1].point === cards[2].point) && (!cards[0].figure && !cards[1].figure && !cards[2].figure ))
+    return ((cards[0].point == cards[1].point) && (cards[1].point == cards[2].point && (cards[0].point == cards[2].point))
+            && (!cards[0].figure && !cards[1].figure && !cards[2].figure ))
   }
 
   this.figureHand = function(){// check if the cards are figureHand
-    return ( (cards[0].figure &&  cards[1].figure && cards[2].figure) &&
-    ((cards[0].figureType != cards[1].figureType) || ( cards[1].figureType != cards[2].figureType )))
+    return ( (cards[0].figure &&  cards[1].figure && cards[2].figure)
+    && ((cards[0].figureClass != cards[1].figureClass) || ( cards[1].figureClass != cards[2].figureClass )|| ( cards[0].figureClass != cards[2].figureClass )))
   }
 
   this.tripleFigureHand = function(){// check if the cards are triplel-figure hand
-    return ((cards[0].figureType == cards[1].figureType) && (cards[1].figureType == cards[2].figureType))
+
+    return ((cards[0].figureType == cards[1].figureType) && (cards[1].figureType == cards[2].figureType)
+          &&(cards[0].figureClass == cards[1].figureClass) && (cards[1].figureClass == cards[2].figureClass)
+          &&(cards[0].figure && (cards[1].figure && cards[2].figure)))
 
   }
 

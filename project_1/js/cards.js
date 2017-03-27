@@ -122,7 +122,7 @@ var cards =[
     figureClass: 3,
     url: './images/game_cards/diamond/diamond-k.jpeg'
   },
-  // Group spade
+
 
   //Ground heart
   {
@@ -242,7 +242,7 @@ var cards =[
     figureClass: 3,
     url: './images/game_cards/heart/heart-k.jpeg'
   },
-  // Group heart
+
   //Ground spade
   {
     name:  'spade-ace',
@@ -362,7 +362,7 @@ var cards =[
     figureClass: 3,
     url: './images/game_cards/spade/spade-k.jpeg'
   },
-  // Group spade
+
   //Ground club
   {
     name:  'club-ace',
@@ -388,6 +388,7 @@ var cards =[
     group: 'club',
     point: 3,
     figure: false,
+    figureType: 'none',
     figureClass: 0,
     url: './images/game_cards/club/club-3.jpeg'
   },
@@ -480,7 +481,7 @@ var cards =[
     figureClass: 2,
     url: './images/game_cards/club/club-k.jpeg'
   }
-  // Group club
+
 ]// end of card object
 
 
