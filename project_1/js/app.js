@@ -12,6 +12,7 @@ $(function(){
   var $p2point = $('#p2point');
   var $p1img   = $('#p1img');
   var $p2img   = $('#p2img');
+  var $resetBtn =$ ('#reset');
 
   var UI ={
     changeBackgroundImage: function($elem, url){
@@ -62,20 +63,28 @@ $(function(){
        }
 
 
-    }
+    },
+     reloadPage: function(){
+   window.location.reload();
+}
 
   }// end App
 
   var EventHandlers = {
     btnPlayOnClick: function (){
       App.gameStart();
-    }
-
+    },
+   btnResetOnClick: function(){
+     App.reloadPage();
+   }
   }// end eventhandler
 
 
+
   $playbtn.on('click',EventHandlers.btnPlayOnClick);
-  console.log($playbtn);
+  $resetBtn.on('click', EventHandlers.btnResetOnClick);
+
+
 
 
 })// end of window onload
