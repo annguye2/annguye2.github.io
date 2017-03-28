@@ -103,7 +103,7 @@ var gameExecution = {
 
 } // end of Game execution
 
-var numGround = 10 ;// assume player wanted to play 10 game/ground
+// var numGround = 10 ;// assume player wanted to play 10 game/ground
 var printArr = function (arr){
   console.log('---------------------');
   for (var i = 0; i < arr.length; i++) {
@@ -118,25 +118,25 @@ var printArr = function (arr){
 
 //everything in this section will be added to "start on click event"
 // var arr = dealCards.shuffle(cards);
-var arr = cards;
-var cards1 = arr.slice(0,3);
-console.log('player 1');
-//printArr(cards1);
-var cards2 = arr.slice(3,6);
-console.log('player 2');
-printArr(cards2);
-
-var n = 10;
-var cardsx = [cards[n], cards[n + 14], cards[n + 13 + 13]];
-printArr(cardsx);
-gameExecution.start(cardsx, cards2); // card1, cards2 taken from inpute UI
-var player1 = gameExecution.getPlayer1();
-
-console.log("player 1 point :  " + gameExecution.getPlayer1().getPoint());
-console.log("player 1 score :  " + gameExecution.getPlayer1().getScore());
-console.log('-----------------------');
-console.log("player 2 point :  " + gameExecution.getPlayer2().getPoint());
-console.log("player 2 score :  " + gameExecution.getPlayer2().getScore());
+// var arr = cards;
+// var cards1 = arr.slice(0,3);
+// console.log('player 1');
+// //printArr(cards1);
+// var cards2 = arr.slice(3,6);
+// console.log('player 2');
+// printArr(cards2);
+//
+// //var n = 10;
+// //var cardsx = [cards[n], cards[n + 14], cards[n + 13 + 13]];
+// //printArr(cardsx);
+// gameExecution.start(cards1, cards2); // card1, cards2 taken from inpute UI
+// var player1 = gameExecution.getPlayer1();
+//
+// console.log("player 1 point :  " + gameExecution.getPlayer1().getPoint());
+// console.log("player 1 score :  " + gameExecution.getPlayer1().getScore());
+// console.log('-----------------------');
+// console.log("player 2 point :  " + gameExecution.getPlayer2().getPoint());
+// console.log("player 2 score :  " + gameExecution.getPlayer2().getScore());
 
 // end
 

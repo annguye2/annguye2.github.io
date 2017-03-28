@@ -1,3 +1,10 @@
-body{
-  background: darkgrey;
+.card{
+  width:  15%;
+  height: 200px;
+  background: white;
+  margin: 1%;
+  background-image: url('../images/back-card.jpg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  border-radius: 2px solid black;
 }

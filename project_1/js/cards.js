@@ -30,7 +30,7 @@ var cards =[
     figure: false,
     figureType: 'none',
     figureClass: 0,
-    url: '../images/game_cards/diamond/diamond-3.jpeg'
+    url: './images/game_cards/diamond/diamond-3.jpeg'
   },
   {
     name: 'diamond-4',
@@ -151,7 +151,7 @@ var cards =[
     figure: false,
     figureType: 'none',
     figureClass: 0,
-    url: '../images/game_cards/heart/heart-3.jpeg'
+    url: './images/game_cards/heart/heart-3.jpeg'
   },
   {
     name: 'heart-4',
@@ -483,12 +483,3 @@ var cards =[
   }
 
 ]// end of card object
-
-
-//  This is special hands result with value
-
-// var specialHands = [
-//   'Figure-Hand' : 5,
-//   'Triple-Hand' : 10,
-//   'Triple-Figure-Hand': 15
-// ]

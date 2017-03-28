@@ -1,8 +1,5 @@
 console.log('connected to playedCards');
-// This Class keeps all card for current game..it prevent the card will dealed-out twice
-// function getRandomInt(min, max) {
-//   return Math.floor(Math.random() * (max - min + 1) + min);
-// }
+
 
 var dealCards = {
   count: 0,
