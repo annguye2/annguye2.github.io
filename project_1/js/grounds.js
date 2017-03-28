@@ -48,17 +48,17 @@ var gameExecution = {
     if (playerPoint == 'Triple-Figure-Hand') {
       playerPoint = 20;  // add 5 point for the winner with Triple-Figure-Hand
       player.setPoint(playerPoint);
-      alert (player.getName() + ':   Congratulation!!! You won a game with Triple-Figure-Hand.\nYou won 20 points.')
+      alert (player.getName() + ':   Congratulation!!! You have a Triple-Figure-Hand.\nYou won 20 points.')
     }
     else if(playerPoint == 'Triple-Hand'){
       playerPoint =  15;  // add 5 point for the winner with Triple-Figure-Hand
         player.setPoint(playerPoint);
-      alert (player.getName()  + ':   Congratulation!!! You won a game with Triple-Hand.\nYou won 15 points.')
+      alert (player.getName()  + ':   Congratulation!!! You have Triple-Hand.\nYou won 15 points.')
     }
     else if(playerPoint == 'Figure-Hand'){
       playerPoint =  10;  // add 5 point for the winner with Triple-Figure-Hand
       player.setPoint(playerPoint);
-      alert (player.getName() + ':   Congratulation!!! You won a game with Figure-Hand.\nYou won 10  points.')
+      alert (player.getName() + ':   Congratulation!!! You won a Figure-Hand.\nYou won 10  points.')
     }else{
        player.setPoint(playerPoint);
     }
@@ -102,44 +102,6 @@ var gameExecution = {
   }
 
 } // end of Game execution
-
-// var numGround = 10 ;// assume player wanted to play 10 game/ground
-var printArr = function (arr){
-  console.log('---------------------');
-  for (var i = 0; i < arr.length; i++) {
-     console.log('name: ' + arr[i].name);
-     console.log('point:  ' + arr[i].point);
-     console.log('figureType:  ' + arr[i].figureType);
-     console.log('figure:  ' + arr[i].figure);
-     console.log('---------------------');
-    }
-  console.log('************************');
-}
-
-//everything in this section will be added to "start on click event"
-// var arr = dealCards.shuffle(cards);
-// var arr = cards;
-// var cards1 = arr.slice(0,3);
-// console.log('player 1');
-// //printArr(cards1);
-// var cards2 = arr.slice(3,6);
-// console.log('player 2');
-// printArr(cards2);
-//
-// //var n = 10;
-// //var cardsx = [cards[n], cards[n + 14], cards[n + 13 + 13]];
-// //printArr(cardsx);
-// gameExecution.start(cards1, cards2); // card1, cards2 taken from inpute UI
-// var player1 = gameExecution.getPlayer1();
-//
-// console.log("player 1 point :  " + gameExecution.getPlayer1().getPoint());
-// console.log("player 1 score :  " + gameExecution.getPlayer1().getScore());
-// console.log('-----------------------');
-// console.log("player 2 point :  " + gameExecution.getPlayer2().getPoint());
-// console.log("player 2 score :  " + gameExecution.getPlayer2().getScore());
-
-// end
-
 
 
 

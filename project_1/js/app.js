@@ -12,19 +12,27 @@ $(function(){
   var $p2point = $('#p2point');
   var $p1img   = $('#p1img');
   var $p2img   = $('#p2img');
-  var $resetBtn =$ ('#reset');
+  var $resetBtn = $('#reset');
+  var $gameRadio  = $('.radio') // get number game from input radio
+  var numGames  = 10; // number of games for each grounds.
+  var $p1score = $('#p1score');
+  var $p2score = $('#p2score');
+  var $groundNum = $('#groundNum');
+  var player1;  // create player 1 and 2
+  var player2;
+  var score;
 
   var UI ={
     changeBackgroundImage: function($elem, url){
       $elem.css('background-image', "url(" + url +  ")" );
     },
-    changePointText: function($elem, newText){
-      $elem.text("Point: " + newText);
+    changeElementText: function($elem, newText){
+      $elem.text(newText);
     },
 
-   changeImgSrc: function ($elem, url){
-     $elem.attr('src', url);
-   }
+    changeImgSrc: function ($elem, url){
+      $elem.attr('src', url);
+    }
   }// End UI
 
 
@@ -40,52 +48,83 @@ $(function(){
       UI.changeBackgroundImage($p2card3, cards2[2].url)
     },
     setPoint: function (player1, player2){
-     UI.changePointText($p1point, gameExecution.getPlayer1().getPoint() )
-     UI.changePointText($p2point, gameExecution.getPlayer2().getPoint() )
-    } ,
+      UI.changeElementText($p1point, "Point: " + gameExecution.getPlayer1().getPoint() )
+      UI.changeElementText($p2point, "Point: " + gameExecution.getPlayer2().getPoint() )
+    },
+    setScore: function(){
+      UI.changeElementText($p1score, "Score: " +score.getPlayer1Score() )
+      UI.changeElementText($p2score, "Score: " +score.getPlayer2Score() )
+
+    },
+    setGameNumer:  function (){
+      UI.changeElementText($groundNum, "Game Number: " +score.getGameCount() )
+    },
 
     gameStart : function (){
+
+     //console.log('number game:  ' + numGames);
       var arr = dealCards.shuffle(cards); // shuffleing cards before deal out
       var cards1 = arr.slice(0,3);
       var cards2 = arr.slice(3,6);
-      App.dealCards(cards1, cards2);   // get cards for player 2
+      this.dealCards(cards1, cards2);   // get cards for player 2
       gameExecution.start(cards1, cards2); // card1, cards2 taken from inpute UI
-      App.setPoint(gameExecution.getPlayer1(), gameExecution.getPlayer2())
-       if(gameExecution.getPlayer1().getPoint() > gameExecution.getPlayer2().getPoint()){
-         UI.changeImgSrc($p1img,"./images/game-win.png");
-         UI.changeImgSrc($p2img,"./images/game-lost.png");
-       }else  if(gameExecution.getPlayer2().getPoint() > gameExecution.getPlayer1().getPoint()){
-         UI.changeImgSrc($p1img,"./images/game-lost.png");
-         UI.changeImgSrc($p2img, "./images/game-win.png" );
-       }else{
-         UI.changeImgSrc($p1img, "./images/game-win.png" );
-         UI.changeImgSrc($p2img, "./images/game-win.png" );
-       }
-
+      this.setPoint(); // set point for both players
+      if(gameExecution.getPlayer1().getPoint() > gameExecution.getPlayer2().getPoint()){
+        UI.changeImgSrc($p1img,"./images/game-win.png");
+        UI.changeImgSrc($p2img,"./images/game-lost.png");
+        score.setScore(1,0);// set 1 point for player 1 and 0 point for player 2
+      }else  if(gameExecution.getPlayer2().getPoint() > gameExecution.getPlayer1().getPoint()){
+        UI.changeImgSrc($p1img,"./images/game-lost.png");
+        UI.changeImgSrc($p2img, "./images/game-win.png" );
+        score.setScore(0,1);// set 1 point for player 2 and 0 point for player 1
+      }else{
+        UI.changeImgSrc($p1img, "./images/game-win.png" );
+        UI.changeImgSrc($p2img, "./images/game-win.png" );
+        score.setScore(0,1);// set 1 point for player 2 and 1 point for player 1
+      }
+      this.setScore(); //update score to both user
+      this.setGameNumer();
 
     },
-     reloadPage: function(){
-   window.location.reload();
-}
+    reloadPage: function(){
+      window.location.reload();
+    },
+
+    numberGames: function ($elem){
+      numGames =  $elem.val();
+
+    },
+    gameInitialize: function (){
+      player1 = new Player('player-1'); // create player 1 and 2
+      player2 = new Player('player-2');
+      score = new Score(player1, player2, numGames)
+    },
+
 
   }// end App
 
+
+
   var EventHandlers = {
     btnPlayOnClick: function (){
+
       App.gameStart();
     },
-   btnResetOnClick: function(){
-     App.reloadPage();
-   }
+    btnResetOnClick: function(){
+      App.reloadPage();
+    },
+
+    radioOnChange: function(){
+      App.numberGames($(this))
+    }
   }// end eventhandler
-
-
 
   $playbtn.on('click',EventHandlers.btnPlayOnClick);
   $resetBtn.on('click', EventHandlers.btnResetOnClick);
+  $gameRadio.on('change', EventHandlers.radioOnChange);
 
 
-
+    App.gameInitialize();
 
 })// end of window onload
 

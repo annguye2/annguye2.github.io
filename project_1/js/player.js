@@ -15,6 +15,9 @@ var Player = function(playerName){
   this.increaseScore = function (){//increasing score by 1
     score += 1;
   }
+  this.setScore = function(newScore){
+    score += newScore;
+  }
   // get name current player
   this.getName = function (){
     return name;
