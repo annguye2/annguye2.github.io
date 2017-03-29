@@ -1,24 +1,23 @@
 .card{
-  width: 15%;
+  width: 14%;
   height: 210px;
   margin: 1%;
   background-image: url('../images/back-card.jpg') ;
-  /*background-image: url('../images/winner.jpg') ;*/
-
   background-repeat: no-repeat;
   background-size: 100% 100%;
-
   animation: blink;
 }
 
 #p1info, #p2info{ /*div*/
   width: 10%;
-  font-size: 12px;
+  font-size: 4%;
   display: flex;
-  /*border: 1px solid black;*/
+  font-family: 'Apple Chancery', cursive;
   flex-direction: column;
   align-items:center;
   justify-content:flex-end;
   background-image: url('');
-  color: #F4E9DF;
+  color: #E8820C;
+
+  font-weight: lighter;
 }

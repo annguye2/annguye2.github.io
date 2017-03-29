@@ -32,6 +32,7 @@ var Score = function (newPlayer1, newPlayer2, numGames){
       }else if (this.getPlayer2Score() > this.getPlayer1Score()){
         return player2;
       }else {return "Tie";}
+      //return "Tie";
   }
   this.setNumberOfGames = function (){
       gameCount += 1;
