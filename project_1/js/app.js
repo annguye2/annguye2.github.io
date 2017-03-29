@@ -70,6 +70,20 @@ $(function(){
     setGameNumer:  function (){
       UI.changeElementText($groundNum, "GAME NUMBER: " +score.getGameCount() )
     },
+    setWinnerBackground(player){ // set winner background
+        var imageUrl = "./images/winner.png"; // set winning image
+      if('player-1'){
+        UI.changeBackgroundImage($p1card1,imageUrl);
+        UI.changeBackgroundImage($p1card2,imageUrl);
+        UI.changeBackgroundImage($p1card3,imageUrl);
+      }else if ('player-2'){
+        UI.changeBackgroundImage($p2card1,imageUrl);
+        UI.changeBackgroundImage($p2card2,imageUrl);
+        UI.changeBackgroundImage($p2card3,imageUrl);
+      }
+
+    }, //end
+
     // start the game
     gameStart : function (){
       //console.log('number game:  ' + numGames);
@@ -99,20 +113,23 @@ $(function(){
       }else{
 
         UI.disableElement($playbtn); // disable Play button until user restart the game
+        // var imageUrl = "./images/winner.png"; // set winning image
         // set winning-player background to dolar sign
         if (player1 == score.isWinner()){
-          alert (player1.getName());
-          UI.changeBackgroundImage($p1card1,"./images/winner.jpg");
-          UI.changeBackgroundImage($p1card2,"./images/winner.jpg");
-          UI.changeBackgroundImage($p1card3,"./images/winner.jpg");
-
+          this.setWinnerBackground(player1.getName())
+          // UI.changeBackgroundImage($p1card1,imageUrl);
+          // UI.changeBackgroundImage($p1card2,imageUrl);
+          // UI.changeBackgroundImage($p1card3,imageUrl);
         }else if (player2 == score.isWinner()){
-          alert (player2.getName());
-          UI.changeBackgroundImage($p2card1,"./images/winner.jpg")
-          UI.changeBackgroundImage($p2card2,"./images/winner.jpg")
-          UI.changeBackgroundImage($p2card3,"./images/winner.jpg")
+          //alert (player2.getName());
+          this.setWinnerBackground(player2.getName());
+          // UI.changeBackgroundImage($p2card1,imageUrl)
+          // UI.changeBackgroundImage($p2card2,imageUrl)
+          // UI.changeBackgroundImage($p2card3,imageUrl)
         }else{
           alert('TIE');
+            this.setWinnerBackground(player2.getName());
+            this.setWinnerBackground(player1.getName())
         }
 
         /// get the function that anounce the winner here
