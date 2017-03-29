@@ -27,9 +27,9 @@ var Score = function (newPlayer1, newPlayer2, numGames){
     return player2.getScore();
   }
   this.isWinner = function (){
-      if (player1.getPlayer1Score() > player2.getPlayer2Score()){
+      if (this.getPlayer1Score() > this.getPlayer2Score()){
         return player1;
-      }else if (player2.getPlayer2Score() > player1.getPlayer1Score()){
+      }else if (this.getPlayer2Score() > this.getPlayer1Score()){
         return player2;
       }else {return "Tie";}
   }

@@ -97,7 +97,24 @@ $(function(){
         this.setGameNumer(); // update current game number
         UI.disableElement($gameRadio);
       }else{
-        alert ('the game is over');
+
+        UI.disableElement($playbtn); // disable Play button until user restart the game
+        // set winning-player background to dolar sign
+        if (player1 == score.isWinner()){
+          alert (player1.getName());
+          UI.changeBackgroundImage($p1card1,"./images/winner.jpg");
+          UI.changeBackgroundImage($p1card2,"./images/winner.jpg");
+          UI.changeBackgroundImage($p1card3,"./images/winner.jpg");
+
+        }else if (player2 == score.isWinner()){
+          alert (player2.getName());
+          UI.changeBackgroundImage($p2card1,"./images/winner.jpg")
+          UI.changeBackgroundImage($p2card2,"./images/winner.jpg")
+          UI.changeBackgroundImage($p2card3,"./images/winner.jpg")
+        }else{
+          alert('TIE');
+        }
+
         /// get the function that anounce the winner here
       }
 

@@ -37,7 +37,6 @@ var gameExecution = {
   player1:  new Player('Player 1'),   // create player 1 obj
   player2:  new Player('Player 2'),   // create player 2 obj
 
-
   calculatePointForEachGame: function (gamePerPlayer){
     return gamePerPlayer.calculatePoint();  // calculate each ground for each player
 
