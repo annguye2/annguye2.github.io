@@ -1,41 +1,49 @@
+
+body{
+  /*background: lightblue; */
+  border: 4px solid red;
+}
 .container {
-  width: 90%;
-  height: 100%;
-  margin-left: 6%;
-  background: red;
+  width: 75%;
+  height: 800px;
+  margin-left: 13%;
+  border: 2px solid black;
+  background-image: url('../images/poker4.jpg');
+  background-repeat: no-repeat;
+  display: inline-block;
   display: flex;
   flex-direction: column;
-
-
+  background-size: cover;
+  /*background: yellow;*/
 }
 
 .row-1{
   width: 100%;
-  height: 200px;
-  background: lightblue;
+  height: 33%;
+  /*background: lightblue;*/
+  flex-shrink: 1;
   display: flex;
   align-items: center;
   justify-content: center;
   justify-content: space-between
   padding: 15px;
+  box-sizing: border-box;
+  /*border: 1px solid black;*/
 }
 .row-2{
   width: 100%;
-  height:  200px;
-  background: lightgrey;
+  height:  33%;
+  /*background: lightblue;*/
   display: flex;
   flex-direction: column;
   align-items: center;
-  /*justify-content: center;
-  display: -webkit-flex;
-  display: flex;*/
-
+  justify-content: space-between;
 
 }
 .row-3{
   width: 100%;
-  height: 200px;
-  background: lightblue;
+  height: 33%;
+  /*background: lightblue;*/
   display: flex;
   align-items: center;
   justify-content: center;
@@ -46,26 +54,17 @@
   list-style: none;
 
   justify-content: center;
-}
-
-body{
-  background: lightblue;
-}
-
-div {
   /*border: 1px solid black;*/
-
 }
 
 /*P point */
-.point{
-  text-align: justify;
-
-  width: 15%;
-
-
+.p-infor{
+  width: 75%;
+  height: 25px;
+  text-align: left;
+  font-size: 15px;
+  font-family: "Times New Roman", Times, serif;
 }
-
 img{
   border-radius: 50%;
   height: 70px;
@@ -73,62 +72,75 @@ img{
   border: 1px solid black;
 }
 /*Play button */
+button{
+  color: #F4E9DF;
+    border-radius: 5px;
+      font-family: Trebuchet MS, sans-serif;
+      background-color: Transparent;
+      background-repeat:no-repeat;
+      cursor:pointer;
 
-/*
-form{
-width: 45%;
-height: 150px;
-display: inline-block;
-text-align: center;
-margin-left: 25%;
-margin-right:25%;
-width: 50%;
-}*/
-.playbtn{
-  font-size: 30px;
-  width: 30%;
-  height: 8vh;
-  border:1px #333 solid;
-
-  background-size:  100% auto;
-  /* <------ */
-  background-repeat:   no-repeat;
-
-  border-radius:10px;
-  margin-top: 0%;
-  /*background-image: url('../images/playbtn.jpg');*/
 
 }
+.playbtn{
+font-weight: bold;
+  font-size: 45px;
+  text-align: center;
+  width: 35%;
+  height: 8vh;
+  margin-top: 0%;
+  overflow: hidden;
+  outline:none;
+  /*text-shadow: 0 1px 0 rgb(204,204,204) , 0 2px 0 rgb(201,201,201) , 0 3px 0 rgb(187,187,187) , 0 4px 0 rgb(185,185,185) , 0 5px 0 rgb(170,170,170) , 0 6px 1px rgba(142,11,11,0.68) , 0 0 5px rgba(0,0,0,0.0980392) ;
+  -webkit-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+  -moz-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+  -o-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+  transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);*/
+}
+
+/*button:hover {
+  font: normal 30px/normal "Passero One", Helvetica, sans-serif;
+  color: rgba(169,214,169,1);
+  text-shadow: 0 1px 0 rgba(255,255,255,1) , 0 2px 0 rgba(255,255,255,1) , 0 3px 0 rgba(255,255,255,1) , 0 4px 0 rgba(255,255,255,1) , 0 5px 0 rgba(255,255,255,1) , 0 6px 1px rgba(0,0,0,0.0980392) , 0 0 5px rgba(0,0,0,0.0980392) , 0 1px 3px rgba(0,0,0,0.298039) , 0 3px 5px rgba(0,0,0,0.2) , 0 -5px 10px rgba(0,0,0,0.247059) , 0 -7px 10px rgba(0,0,0,0.2) , 0 -15px 20px rgba(0,0,0,0.14902) ;
+  -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+  -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+  -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+  transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+}*/
+
 #reset{
   width: 20%;
   height: 18%;
-  font-size: 20px;
-  border-radius: 5px;
+  font-size: 30px;
   margin-top: 1%;
+  /*text-shadow: 0 1px 0 rgb(204,204,204) , 0 2px 0 rgb(201,201,201) , 0 3px 0 rgb(187,187,187) , 0 4px 0 rgb(185,185,185) , 0 5px 0 rgb(170,170,170) , 0 6px 1px rgba(142,11,11,0.68) , 0 0 5px rgba(0,0,0,0.0980392) , 0 1px 3px rgba(0,0,0,0.298039) , 0 3px 5px rgba(0,0,0,0.2) , 0 5px 10px rgba(0,0,0,0.247059) , 0 10px 10px rgba(0,0,0,0.2) , 0 20px 20px rgba(0,0,0,0.14902) ;*/
 }
 
 .numGame{
+  color: white;
   width: 100%;
   height: 25%;
-  font-size: 12px;
+  font-size: 13px;
   margin-top: 9%;
   padding-bottom: 14px;
   display: flex;
   align-items: center;
   justify-content: space-around;
+   
 }
 #groundNum{
   width: 20%;
-  height: 18%;
+  height: 10%;
   text-align: center;
-  border-radius: 5px;
-  border: 1px solid black;
-}
-
-   
-
-span {
-  display: table-cell;
   vertical-align: middle;
+  /*border-radius: 5px;*/
+  /*border: 1px solid black;*/
+  color: lightblue;
+}
+#player{
+  text-align: left;
+  font-weight: 400;
+  font-weight: bold;
+
 }
 /* Create the animation blocks */

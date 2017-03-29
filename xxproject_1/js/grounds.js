@@ -30,6 +30,8 @@ var PlayerPerGame = function(cards){
   }
 }// end Playerpergame class
 //===========================//===============================//
+// all input from below assumed set aftet submit/check button is click
+// the input should be taken from  this file or created UI file that can read the input form UI
 
 //create game excution obj
 var gameExecution = {

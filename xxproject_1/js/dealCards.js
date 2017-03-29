@@ -1,6 +1,6 @@
 console.log('connected to playedCards');
 
-// this method is used to shuffle the cards 
+
 var dealCards = {
   count: 0,
   shuffle: function (array) {

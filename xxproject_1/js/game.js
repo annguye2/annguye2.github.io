@@ -1,6 +1,5 @@
 
 console.log('connected to game.js');
-//====================//====================//===================//
 //This class is implementing the game calculatePoint, ect for each game, for a player
 var Game = function (newCards) {// 3 dealed card out for each PlayerCards
   var cards = newCards ; // 3 cards passed in
@@ -42,4 +41,3 @@ var Game = function (newCards) {// 3 dealed card out for each PlayerCards
   }
 
 }// end Cards class
-//====================//====================//===================//

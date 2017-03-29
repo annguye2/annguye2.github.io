@@ -6,7 +6,10 @@ var Score = function (newPlayer1, newPlayer2, numGames){
   var player2 = newPlayer2;///new Player (newPlayer2.getName());
   var numberOfGames = numGames;
   var gameCount = 0;
+
+
   this.setPlayers = function (){
+
   }
   //this function will  setCore for both players, either 1 or 0
   this.setScore = function (player1Score, player2Score){ //  set score for each player
@@ -14,6 +17,10 @@ var Score = function (newPlayer1, newPlayer2, numGames){
     player1.setScore(player1Score);
     player2.setScore(player2Score);
     this.setNumberOfGames();
+    console.log('-------------------------------------');
+    console.log('number of games:' + gameCount);
+    console.log('player1 score: ' + player1.getScore());
+    console.log('player2 score: ' + player2.getScore());
   }else {
     alert ('game is over ')
   }
