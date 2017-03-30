@@ -25,6 +25,9 @@ $(function(){
   var player2;
   var score;   // score for games
 
+  var score1 = 0;
+  var score2 = 0;
+
   var UI ={
     //change background image
     changeBackgroundImage: function($elem, url){
@@ -115,10 +118,7 @@ $(function(){
       UI.changeElementClass($winner1); //enable element
       UI.changeElementClass($winner2);
     },
-    // setShadow: function($point, $score){
-    //   UI.changeElementClass($p1score);
-    //   UI.changeElementClass($p1point);
-    // },
+
     /*color: #E8820C;*/
     changeElementTextColor: function(p1score, p2score){
       UI.changeElementTextColor($p1point,'#62C7FF');
@@ -147,7 +147,7 @@ $(function(){
       var cards1 = arr.slice(0,3); // get first 3 cards for player 1
       var cards2 = arr.slice(3,6); // get first 3 cards for player 2
 
-score.setGameCount();
+      score.setGameCount();
       if (score.getGameCount() <= numGames) {//
 
         this.setGameNumer(); // update current game number
@@ -174,8 +174,18 @@ score.setGameCount();
         }
         //this.setScore(); //update score to both user
         //  this.setGameNumer(); // update current game number
-
         UI.disableElement($gameRadio);
+        // this section takes care special hand.
+        // if (gameExecution.getPlayer1SpecialHand() != '')
+        // {
+        //   alert ('take care the special hand for player 1')
+        //
+        // }
+        // if (gameExecution.getPlayer2SpecialHand() != '')
+        // {
+        //   alert ('take care the special hand for player 2')
+        //
+        // }
       }
       //UI.disableElement($playbtn); // disable Play button until user restart the game
       if (score.getGameCount() == numGames) {//

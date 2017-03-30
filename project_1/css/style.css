@@ -1,7 +1,7 @@
 
 body{
   /*background: lightblue; */
-  border: 4px solid red;
+  /*border: 4px solid red;*/
 }
 .container {
   width: 75%;
@@ -92,7 +92,7 @@ button{
 
 #reset{
   width: 20%;
-  height: 18%;
+  height: 15%;
   font-size: 30px;
   margin-top: 1%;
 }
@@ -147,5 +147,18 @@ button{
 .shadow{
   color: #C5CFE8;
   text-shadow: -3px 0 1px rgba(31,58,15,1) , 3px 0 1px rgba(0,1,68,1) ;
+}
+
+
+a{
+  color: #E8420C;
+  text-decoration: none;
+  font-family: 'Jazz LET', fantasy;
+  font-size: 12px;
+}
+.extra{
+display: flex;
+justify-content: center;
+justify-content: space-around;
 }
 /* Create the animation blocks */
