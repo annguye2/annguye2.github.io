@@ -102,7 +102,6 @@ $(function(){
         UI.changeBackgroundImage($p2card2,imageUrl);
         UI.changeBackgroundImage($p2card3,imageUrl);
       }
-
     }, //end
     settingWinnerText:  function(winnerName){ // add winner text and shadow
       if(winnerName == 'player-1'){
@@ -116,17 +115,13 @@ $(function(){
     setTieText:  function(){
       UI.enableElement($tie1); //enable element
       UI.enableElement($tie2); //enable element
-      //UI.changeElementText($tie1, "The game is a TIE");
-      //UI.changeElementText($tie2, "The game is a TIE");
       UI.changeElementClass($tie1); //enable element
       UI.changeElementClass($tie2);
     },
     setFigureHandText:  function($elem, msg){
       UI.enableElement($elem); //enable element
       UI.changeElementText($elem, msg);
-      // UI.changeElementText($winner2, "This is a TIE");
-      // UI.changeElementClass($winner1); //enable element
-      // UI.changeElementClass($winner2);
+      UI.changeElementClass($elem); //enable element
     },
     hideTieText: function(){
       UI.disableElement($winner1);
@@ -136,7 +131,6 @@ $(function(){
     },
     hideSpecialHandText: function ($elem){
       UI.disableElement($elem);
-
     },
     /*color: #E8820C;*/
     changeElementTextColor: function(p1score, p2score){
@@ -147,20 +141,14 @@ $(function(){
         UI.changeElementTextColor($p2score, '#E8820C');
       }
       if (p2score == 1){
-        // UI.changeElementTextColor($p2point,'#62C7FF');
         UI.changeElementTextColor($p2score,'#62C7FF');
         UI.changeElementTextColor($p1score, '#E8820C');
-        // UI.changeElementTextColor($p1point, '#62C7FF');
-
       }
       if(p2score == p1score){
-        // UI.changeElementTextColor($p2point,'#62C7FF');
         UI.changeElementTextColor($p2score,'#62C7FF');
-        // UI.changeElementTextColor($p2point, '#62C7FF');
         UI.changeElementTextColor($p2score,'#62C7FF');
       }
     },
-
 
     // start the game
     gameStart : function (){
@@ -168,8 +156,10 @@ $(function(){
       var arr = dealCards.shuffle(cards); // shuffling cards before deal out
       var cards1 = arr.slice(0,3); // get first 3 cards for player 1
       var cards2 = arr.slice(3,6); // get first 3 cards for player 2
-
-
+      // var n = 12;
+      // var m = 10
+      // var cards1 = [cards[n],cards[n + 12], cards[n + 13 + 13]]
+      // var cards2 = [cards[m],cards[m + 13], cards[m + 13 + 13]]
       score.setGameCount();
       // if (score.getGameCount() < numGames) {//
       if (count <= parseInt(numGames)) {//
@@ -207,14 +197,18 @@ $(function(){
           tieMsg = true;
         }
 
-        // if(gameExecution.getPlayer2().isSpecialHand()){
-        //   alert ('set p2 special hand : ' + gameExecution.getPlayer1SpecialHand())
-        //   // set figured hand for P2
-        //   this.setFigureHandText($winner2,  gameExecution.getPlayer1SpecialHand())
-        // }else if (gameExecution.getPlayer1().isSpecialHand()){
-        //   alert ('set p1 specialhand : ' + gameExecution.getPlayer1SpecialHand())
-        //   this.setFigureHandText($winner1,  gameExecution.getPlayer1SpecialHand())
-        // }
+        if(gameExecution.getPlayer1().isSpecialHand())
+        {
+          // set figured hand for P1
+          this.setFigureHandText($specialHand1,  gameExecution.getPlayer1().getSpecialHand());
+          p1FigureHand = true;
+        }
+        if (gameExecution.getPlayer2().isSpecialHand())
+        {
+
+          this.setFigureHandText($specialHand2,  gameExecution.getPlayer2().getSpecialHand())
+          p2FigureHand = true;
+        }
         UI.disableElement($gameRadio);
 
       }
@@ -245,7 +239,7 @@ $(function(){
           UI.changeElementTextColor($p1point, '#E8820C');
           UI.changeElementTextColor($p2point, '#E8820C');
 
-        }else{
+        }else{// setting TIE for both players
           this.setWinnerBackground(player2.getName());
           this.setWinnerBackground(player1.getName());
           UI.changeElementTextColor($p1score, '#62C7FF');
@@ -282,33 +276,22 @@ $(function(){
       UI.disableElement($resetBtn);
       UI.disableElement($numGameChoice);
       // hide numGame
-
     },
   }// end App
 
   var EventHandlers = { // Envent handlers object
     btnPlayOnClick: function (){  // Play button's on click event
     count += 1;
-    if (tieMsg == true) {
-      App.hideTieText();
-      tieMsg == false;
-
-      if (p1FigureHand == true){
-        // hide text of p1 figure hand
-        App.hideSpecialHandText($winner1);
-        p1FigureHand = false;
-      }
-      if (p2FigureHand == true){
-        // hide text of p1 figure hand
-        App.hideSpecialHandText($winner2);
-        p2FigureHand = false;
-      }
-    }
-
+    tieMsg == false;
+    p1FigureHand == false;
+    p1FigureHand = false;
+    p2FigureHand == false;
+    // hide text of p1 figure hand
+    App.hideTieText();
+    App.hideSpecialHandText($specialHand1);
+    App.hideSpecialHandText($specialHand2);
     App.hideItem();
     App.gameStart(); // start the game
-
-    console.log(count);
   },
   btnResetOnClick: function(){ // reset button's on click event
   App.reloadPage(); //reload game

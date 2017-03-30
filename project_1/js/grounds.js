@@ -46,25 +46,25 @@ var gameExecution = {
       player.setSpecialHand(playerPoint);
       playerPoint = 20;  // add 5 point for the winner with Triple-Figure-Hand
       player.setPoint(playerPoint);
-      alert (player.getName() + ':   Congratulation!!! You have a Triple-Figure-Hand.\nYou won 20 points.');
+
 
     }
     else if(playerPoint == 'Triple-Hand'){
       player.setSpecialHand(playerPoint);
       playerPoint =  15;  // add 5 point for the winner with Triple-Figure-Hand
       player.setPoint(playerPoint);
-      alert (player.getName()  + ':   Congratulation!!! You have Triple-Hand.\nYou won 15 points.')
+
 
     }
     else if(playerPoint == 'Figure-Hand'){
       player.setSpecialHand(playerPoint);
       playerPoint =  10;  // add 5 point for the winner with Triple-Figure-Hand
       player.setPoint(playerPoint);
-      alert (player.getName() + ':   Congratulation!!! You won a Figure-Hand.\nYou won 10  points.')
+    
 
     }else{
       player.setPoint(playerPoint);
-      //  player.setSpecialHand('Figure-Hand');
+
     }
 
 

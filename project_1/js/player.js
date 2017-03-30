@@ -6,7 +6,7 @@ var Player = function(playerName){
   var name = playerName;
   var score = 0;
   var currPoint = 0;
-  var specialHand;
+  this.specialHand = 'Unknown';
   var isSpecialHand = false;
   // var winGame = false; // bool for wininng the game after many ground
 
@@ -34,21 +34,16 @@ var Player = function(playerName){
   this.getPoint = function(){
     return currPoint;
   }
-  this.setSpecialHand = function (_pecialHand){
-    specialHand = _pecialHand;
+  this.setSpecialHand = function (_specialHand){
+    this.specialHand = _specialHand; // set special hand
     isSpecialHand = true;
-  //  alert('in player: ' + specialHand);
   }
-  this.getSpecialHand = function (){
-    return specialHand;
+  this.getSpecialHand = function (){// get special hand
+    return this.specialHand;
   }
   this.isSpecialHand = function (){
     return isSpecialHand;
   }
-  // this.setWinGame = function(isWin){
-  //   winGame = isWin;
-  //   return winGame;
-  // }
 
 }// End player class
 
