@@ -6,7 +6,7 @@ var Player = function(playerName){
   var name = playerName;
   var score = 0;
   var currPoint = 0;
-  var winGame = false; // bool for wininng the game after many ground
+  // var winGame = false; // bool for wininng the game after many ground
 
   this.getScore = function (){ // get current score
     return score;
@@ -33,10 +33,10 @@ var Player = function(playerName){
     return currPoint;
   }
 
-  this.setWinGame = function(isWin){
-    winGame = isWin;
-    return winGame;
-  }
+  // this.setWinGame = function(isWin){
+  //   winGame = isWin;
+  //   return winGame;
+  // }
 
 }// End player class
 

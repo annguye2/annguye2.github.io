@@ -24,11 +24,15 @@ $(function(){
   var player1;  // create player 1 and 2
   var player2;
   var score;   // score for games
-
   var score1 = 0;
   var score2 = 0;
+  var count = 0; // game control
+  var popUp = false;
 
   var UI ={
+    changeFontSize: function ($elem, size){
+      $elem.css('font-size',  '25px')
+    },
     //change background image
     changeBackgroundImage: function($elem, url){
       $elem.css('background-image', "url(" + url +  ")" );
@@ -73,20 +77,12 @@ $(function(){
       UI.changeBackgroundImage($p2card3, cards2[2].url);
     },
     // set Point for both players
-    setPoint: function (player1, player2){
+    setPoint: function (){
       UI.changeElementText($p1point, "Point: " + gameExecution.getPlayer1().getPoint());
       UI.changeElementText($p2point, "Point: " + gameExecution.getPlayer2().getPoint());
     },
-    //set score for both players
-    // setScore: function(){
-    //
-    //   UI.changeElementText($p1score, "Score: " +score.getPlayer1Score());
-    //   UI.changeElementText($p2score, "Score: " +score.getPlayer2Score());
-    //
-    // },
-    //set game number for each game
     setGameNumer:  function (){
-      UI.changeElementText($groundNum, "GAME NUMBER: " +score.getGameCount());
+      UI.changeElementText($groundNum, "GAME NUMBER: " + count);
     },
     setWinnerBackground(player){ // set winner background
       var imageUrl = "./images/winner.png"; // set winning image
@@ -118,7 +114,10 @@ $(function(){
       UI.changeElementClass($winner1); //enable element
       UI.changeElementClass($winner2);
     },
-
+    hideTieText: function(){
+      UI.disableElement($winner1);
+      UI.disableElement($winner2);
+    },
     /*color: #E8820C;*/
     changeElementTextColor: function(p1score, p2score){
       UI.changeElementTextColor($p1point,'#62C7FF');
@@ -148,7 +147,8 @@ $(function(){
       var cards2 = arr.slice(3,6); // get first 3 cards for player 2
 
       score.setGameCount();
-      if (score.getGameCount() <= numGames) {//
+      // if (score.getGameCount() < numGames) {//
+      if (count <= parseInt(numGames)) {//
 
         this.setGameNumer(); // update current game number
         this.dealCards(cards1, cards2);   // get cards for player 2
@@ -157,38 +157,49 @@ $(function(){
         if(gameExecution.getPlayer1().getPoint() > gameExecution.getPlayer2().getPoint()){
           UI.changeImgSrc($p1img,"./images/game-win.png");
           UI.changeImgSrc($p2img,"./images/game-lost.png");
+          score1 += 1;
+          console.log('score1 :' + score1);
           this.changeElementTextColor(1,0);
           score.setPlayer1Score(1);// set 1 point for player 1 and 0 point for player 2
-          UI.changeElementText($p1score, "Score: " +score.getPlayer1Score());
+          // UI.changeElementText($p1score, "Score: " +score.getPlayer1Score());
+          UI.changeElementText($p1score, "Score: " + score1);
         }else  if(gameExecution.getPlayer2().getPoint() > gameExecution.getPlayer1().getPoint()){
           UI.changeImgSrc($p1img,"./images/game-lost.png");
           UI.changeImgSrc($p2img, "./images/game-win.png" );
+          score2 += 1;
+          console.log('score2 :' + score2);
           this.changeElementTextColor(0,1);
           score.setPlayer2Score(1);// set 1 point for player 2 and 0 point for player 1
-          UI.changeElementText($p2score, "Score: " +score.getPlayer2Score());
-        }else{
+          // UI.changeElementText($p2score, "Score: " + score.getPlayer2Score());
+          UI.changeElementText($p2score, "Score: " + score2);
+        }else if(gameExecution.getPlayer2().getPoint() == gameExecution.getPlayer1().getPoint()){
+          alert('this is a tied');
           UI.changeImgSrc($p1img, "./images/game-win.png" );
           UI.changeImgSrc($p2img, "./images/game-win.png" );
+          score.setPlayer1Score(1);
+          score.setPlayer2Score(1);
+          score1 += 1;
+          score2 += 1;
+          UI.changeElementText($p1score, "Score: " + score1);
+          UI.changeElementText($p2score, "Score: " + score2);
           score.setPlayer1Score(1);// set 1 point for player 2 and 1 point for player 1
           score.setPlayer2Score(1);// set 1 point for player 2 and 1 point for player 1
+          this.setTieText();
+          popUp = true;
         }
-        //this.setScore(); //update score to both user
-        //  this.setGameNumer(); // update current game number
         UI.disableElement($gameRadio);
-        // this section takes care special hand.
-        // if (gameExecution.getPlayer1SpecialHand() != '')
-        // {
-        //   alert ('take care the special hand for player 1')
-        //
-        // }
-        // if (gameExecution.getPlayer2SpecialHand() != '')
-        // {
-        //   alert ('take care the special hand for player 2')
-        //
-        // }
+
       }
       //UI.disableElement($playbtn); // disable Play button until user restart the game
-      if (score.getGameCount() == numGames) {//
+      // if (score.getGameCount() == numGames) {//
+      if (count == parseInt(numGames)) {
+        UI.changeElementText ($playbtn, 'CHECK');
+        UI.changeFontSize($playbtn, '25px');
+        //$playbtn.text('CHECK');
+      }
+      if (count == parseInt(numGames) + 1) {//
+        UI.disableElement($playbtn);
+        UI.enableElement($resetBtn);
         this.resetWinLostImg();
         if (player1 == score.isWinner()){
           this.setWinnerBackground(player1.getName());
@@ -213,12 +224,9 @@ $(function(){
           UI.changeElementTextColor($p2score, '#62C7FF');
           UI.changeElementTextColor($p1point, '#E8820C');
           UI.changeElementTextColor($p2point, '#E8820C');
-          this.setTieText();
+          this.setTieText();  // set tie message
+
         }
-        UI.disableElement($playbtn);
-        UI.enableElement($resetBtn);
-        UI.enableElement($numGameChoice);
-        UI.enableElement($gameRadio);
       }
 
     },
@@ -252,8 +260,16 @@ $(function(){
 
   var EventHandlers = { // Envent handlers object
     btnPlayOnClick: function (){  // Play button's on click event
+    count += 1;
+    if (popUp == true) {
+      App.hideTieText();
+      popUp == false;
+    }
+
     App.hideItem();
     App.gameStart(); // start the game
+
+    console.log(count);
   },
   btnResetOnClick: function(){ // reset button's on click event
   App.reloadPage(); //reload game
