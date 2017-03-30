@@ -195,7 +195,6 @@ $(function(){
           // UI.changeElementText($p2score, "Score: " + score.getPlayer2Score());
           UI.changeElementText($p2score, "Score: " + score2);
         }else if(parseInt(gameExecution.getPlayer2().getPoint()) == parseInt(gameExecution.getPlayer1().getPoint())){
-          alert('this is a TIE')
           UI.changeImgSrc($p1img, "./images/game-win.png" );
           UI.changeImgSrc($p2img, "./images/game-win.png" );
           score1 += 1;
