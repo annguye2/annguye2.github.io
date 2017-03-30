@@ -20,7 +20,7 @@ $(function(){
   var $numGameChoice = $('.numGameChoice'); // numbere of game choices div
   var $winner1 = $('#winner1'); // set P winner1 and winner2
   var $winner2 = $('#winner2');
-  var numGames  = 10;           // default number of games for each grounds.
+  var numGames  = 5;           // default number of games for each grounds.
   var player1;  // create player 1 and 2
   var player2;
   var score;   // score for games
@@ -75,12 +75,12 @@ $(function(){
       UI.changeElementText($p2point, "Point: " + gameExecution.getPlayer2().getPoint());
     },
     //set score for both players
-    setScore: function(){
-
-      UI.changeElementText($p1score, "Score: " +score.getPlayer1Score());
-      UI.changeElementText($p2score, "Score: " +score.getPlayer2Score());
-
-    },
+    // setScore: function(){
+    //
+    //   UI.changeElementText($p1score, "Score: " +score.getPlayer1Score());
+    //   UI.changeElementText($p2score, "Score: " +score.getPlayer2Score());
+    //
+    // },
     //set game number for each game
     setGameNumer:  function (){
       UI.changeElementText($groundNum, "GAME NUMBER: " +score.getGameCount());
@@ -119,7 +119,7 @@ $(function(){
     //   UI.changeElementClass($p1score);
     //   UI.changeElementClass($p1point);
     // },
-  /*color: #E8820C;*/
+    /*color: #E8820C;*/
     changeElementTextColor: function(p1score, p2score){
       UI.changeElementTextColor($p1point,'#62C7FF');
       UI.changeElementTextColor($p2point,'#62C7FF');
@@ -146,7 +146,11 @@ $(function(){
       var arr = dealCards.shuffle(cards); // shuffling cards before deal out
       var cards1 = arr.slice(0,3); // get first 3 cards for player 1
       var cards2 = arr.slice(3,6); // get first 3 cards for player 2
-      if (!score.gameOver()) {
+
+score.setGameCount();
+      if (score.getGameCount() <= numGames) {//
+
+        this.setGameNumer(); // update current game number
         this.dealCards(cards1, cards2);   // get cards for player 2
         gameExecution.start(cards1, cards2); // start executing the  game
         this.setPoint(); // set point for both players
@@ -154,22 +158,27 @@ $(function(){
           UI.changeImgSrc($p1img,"./images/game-win.png");
           UI.changeImgSrc($p2img,"./images/game-lost.png");
           this.changeElementTextColor(1,0);
-          score.setScore(1,0);// set 1 point for player 1 and 0 point for player 2
+          score.setPlayer1Score(1);// set 1 point for player 1 and 0 point for player 2
+          UI.changeElementText($p1score, "Score: " +score.getPlayer1Score());
         }else  if(gameExecution.getPlayer2().getPoint() > gameExecution.getPlayer1().getPoint()){
           UI.changeImgSrc($p1img,"./images/game-lost.png");
           UI.changeImgSrc($p2img, "./images/game-win.png" );
           this.changeElementTextColor(0,1);
-          score.setScore(0,1);// set 1 point for player 2 and 0 point for player 1
+          score.setPlayer2Score(1);// set 1 point for player 2 and 0 point for player 1
+          UI.changeElementText($p2score, "Score: " +score.getPlayer2Score());
         }else{
           UI.changeImgSrc($p1img, "./images/game-win.png" );
           UI.changeImgSrc($p2img, "./images/game-win.png" );
-          score.setScore(1,1);// set 1 point for player 2 and 1 point for player 1
+          score.setPlayer1Score(1);// set 1 point for player 2 and 1 point for player 1
+          score.setPlayer2Score(1);// set 1 point for player 2 and 1 point for player 1
         }
-        this.setScore(); //update score to both user
-        this.setGameNumer(); // update current game number
+        //this.setScore(); //update score to both user
+        //  this.setGameNumer(); // update current game number
+
         UI.disableElement($gameRadio);
-      }else{
-        //UI.disableElement($playbtn); // disable Play button until user restart the game
+      }
+      //UI.disableElement($playbtn); // disable Play button until user restart the game
+      if (score.getGameCount() == numGames) {//
         this.resetWinLostImg();
         if (player1 == score.isWinner()){
           this.setWinnerBackground(player1.getName());
@@ -196,7 +205,12 @@ $(function(){
           UI.changeElementTextColor($p2point, '#E8820C');
           this.setTieText();
         }
+        UI.disableElement($playbtn);
+        UI.enableElement($resetBtn);
+        UI.enableElement($numGameChoice);
+        UI.enableElement($gameRadio);
       }
+
     },
 
     resetWinLostImg: function(){
@@ -236,6 +250,7 @@ $(function(){
 },
 radioOnChange: function(){ // redio onchange event
   App.numberGames($(this)) // select number of game
+  App.gameInitialize(); // initialize objects before the game start
 }
 }// end eventhandler
 
@@ -244,7 +259,7 @@ $playbtn.on('click',EventHandlers.btnPlayOnClick);
 $resetBtn.on('click', EventHandlers.btnResetOnClick);
 $gameRadio.on('change', EventHandlers.radioOnChange);
 
-App.gameInitialize(); // initialize objects before the game start
+App.gameInitialize();
 
 })// end of window onload
 // end of file

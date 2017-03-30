@@ -8,15 +8,12 @@ var Score = function (newPlayer1, newPlayer2, numGames){
   var gameCount = 0;
   this.setPlayers = function (){
   }
-  //this function will  setCore for both players, either 1 or 0
-  this.setScore = function (player1Score, player2Score){ //  set score for each player
-   if (!this.gameOver()){
-    player1.setScore(player1Score);
-    player2.setScore(player2Score);
-    this.setNumberOfGames();
-  }else {
-    alert ('game is over ')
+
+  this.setPlayer1Score = function(player1Score){
+      player1.setScore(player1Score);
   }
+  this.setPlayer2Score = function(player2Score){
+      player2.setScore(player2Score);
   }
   this.getPlayer1Score = function (){
     //console.log(this.player1.getScore());
@@ -34,13 +31,14 @@ var Score = function (newPlayer1, newPlayer2, numGames){
       }else {return "Tie";}
       //return "Tie";
   }
-  this.setNumberOfGames = function (){
+  this.setGameCount = function (){
       gameCount += 1;
   }
   this.getGameCount = function (){
      return gameCount;
   }
   this.gameOver = function (){
+    console.log(gameCount);
     return (gameCount == numberOfGames);
   }
 
