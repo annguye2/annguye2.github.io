@@ -20,14 +20,21 @@ $(function(){
   var $numGameChoice = $('.numGameChoice'); // numbere of game choices div
   var $winner1 = $('#winner1'); // set P winner1 and winner2
   var $winner2 = $('#winner2');
-  var numGames  = 5;           // default number of games for each grounds.
+  var $specialHand1 = $('#specialHand1');
+  var $specialHand2 = $('#specialHand2');
+  var $tie1 =  $('#tie1') // display game of TIE
+  var $tie2 =  $('#tie2') // display game of TIE
+  var numGames  = 10;           // default number of games for each grounds.
   var player1;  // create player 1 and 2
   var player2;
   var score;   // score for games
   var score1 = 0;
   var score2 = 0;
   var count = 0; // game control
-  var popUp = false;
+  var tieMsg = false;
+  var p1FigureHand = false;
+  var p2FigureHand = false;
+
 
   var UI ={
     changeFontSize: function ($elem, size){
@@ -106,17 +113,30 @@ $(function(){
         UI.changeElementClass($winner2);
       }
     },
-    setTieText:  function(winnerName){
-      UI.enableElement($winner1); //enable element
-      UI.enableElement($winner2);
-      UI.changeElementText($winner1, "This is a TIE");
-      UI.changeElementText($winner2, "This is a TIE");
-      UI.changeElementClass($winner1); //enable element
-      UI.changeElementClass($winner2);
+    setTieText:  function(){
+      UI.enableElement($tie1); //enable element
+      UI.enableElement($tie2); //enable element
+      //UI.changeElementText($tie1, "The game is a TIE");
+      //UI.changeElementText($tie2, "The game is a TIE");
+      UI.changeElementClass($tie1); //enable element
+      UI.changeElementClass($tie2);
+    },
+    setFigureHandText:  function($elem, msg){
+      UI.enableElement($elem); //enable element
+      UI.changeElementText($elem, msg);
+      // UI.changeElementText($winner2, "This is a TIE");
+      // UI.changeElementClass($winner1); //enable element
+      // UI.changeElementClass($winner2);
     },
     hideTieText: function(){
       UI.disableElement($winner1);
       UI.disableElement($winner2);
+      UI.disableElement($tie1);
+      UI.disableElement($tie2);
+    },
+    hideSpecialHandText: function ($elem){
+      UI.disableElement($elem);
+
     },
     /*color: #E8820C;*/
     changeElementTextColor: function(p1score, p2score){
@@ -140,11 +160,15 @@ $(function(){
         UI.changeElementTextColor($p2score,'#62C7FF');
       }
     },
+
+
     // start the game
     gameStart : function (){
+
       var arr = dealCards.shuffle(cards); // shuffling cards before deal out
       var cards1 = arr.slice(0,3); // get first 3 cards for player 1
       var cards2 = arr.slice(3,6); // get first 3 cards for player 2
+
 
       score.setGameCount();
       // if (score.getGameCount() < numGames) {//
@@ -154,30 +178,26 @@ $(function(){
         this.dealCards(cards1, cards2);   // get cards for player 2
         gameExecution.start(cards1, cards2); // start executing the  game
         this.setPoint(); // set point for both players
-        if(gameExecution.getPlayer1().getPoint() > gameExecution.getPlayer2().getPoint()){
+        if(parseInt(gameExecution.getPlayer1().getPoint()) > parseInt(gameExecution.getPlayer2().getPoint())){
           UI.changeImgSrc($p1img,"./images/game-win.png");
           UI.changeImgSrc($p2img,"./images/game-lost.png");
           score1 += 1;
-          console.log('score1 :' + score1);
           this.changeElementTextColor(1,0);
           score.setPlayer1Score(1);// set 1 point for player 1 and 0 point for player 2
           // UI.changeElementText($p1score, "Score: " +score.getPlayer1Score());
           UI.changeElementText($p1score, "Score: " + score1);
-        }else  if(gameExecution.getPlayer2().getPoint() > gameExecution.getPlayer1().getPoint()){
+        }else  if(parseInt(gameExecution.getPlayer2().getPoint()) > parseInt(gameExecution.getPlayer1().getPoint())){
           UI.changeImgSrc($p1img,"./images/game-lost.png");
           UI.changeImgSrc($p2img, "./images/game-win.png" );
           score2 += 1;
-          console.log('score2 :' + score2);
           this.changeElementTextColor(0,1);
           score.setPlayer2Score(1);// set 1 point for player 2 and 0 point for player 1
           // UI.changeElementText($p2score, "Score: " + score.getPlayer2Score());
           UI.changeElementText($p2score, "Score: " + score2);
-        }else if(gameExecution.getPlayer2().getPoint() == gameExecution.getPlayer1().getPoint()){
-          alert('this is a tied');
+        }else if(parseInt(gameExecution.getPlayer2().getPoint()) == parseInt(gameExecution.getPlayer1().getPoint())){
+          alert('this is a TIE')
           UI.changeImgSrc($p1img, "./images/game-win.png" );
           UI.changeImgSrc($p2img, "./images/game-win.png" );
-          score.setPlayer1Score(1);
-          score.setPlayer2Score(1);
           score1 += 1;
           score2 += 1;
           UI.changeElementText($p1score, "Score: " + score1);
@@ -185,8 +205,17 @@ $(function(){
           score.setPlayer1Score(1);// set 1 point for player 2 and 1 point for player 1
           score.setPlayer2Score(1);// set 1 point for player 2 and 1 point for player 1
           this.setTieText();
-          popUp = true;
+          tieMsg = true;
         }
+
+        // if(gameExecution.getPlayer2().isSpecialHand()){
+        //   alert ('set p2 special hand : ' + gameExecution.getPlayer1SpecialHand())
+        //   // set figured hand for P2
+        //   this.setFigureHandText($winner2,  gameExecution.getPlayer1SpecialHand())
+        // }else if (gameExecution.getPlayer1().isSpecialHand()){
+        //   alert ('set p1 specialhand : ' + gameExecution.getPlayer1SpecialHand())
+        //   this.setFigureHandText($winner1,  gameExecution.getPlayer1SpecialHand())
+        // }
         UI.disableElement($gameRadio);
 
       }
@@ -224,7 +253,7 @@ $(function(){
           UI.changeElementTextColor($p2score, '#62C7FF');
           UI.changeElementTextColor($p1point, '#E8820C');
           UI.changeElementTextColor($p2point, '#E8820C');
-          this.setTieText();  // set tie message
+          this.setTieText();  // set tie message for both user
 
         }
       }
@@ -261,9 +290,20 @@ $(function(){
   var EventHandlers = { // Envent handlers object
     btnPlayOnClick: function (){  // Play button's on click event
     count += 1;
-    if (popUp == true) {
+    if (tieMsg == true) {
       App.hideTieText();
-      popUp == false;
+      tieMsg == false;
+
+      if (p1FigureHand == true){
+        // hide text of p1 figure hand
+        App.hideSpecialHandText($winner1);
+        p1FigureHand = false;
+      }
+      if (p2FigureHand == true){
+        // hide text of p1 figure hand
+        App.hideSpecialHandText($winner2);
+        p2FigureHand = false;
+      }
     }
 
     App.hideItem();

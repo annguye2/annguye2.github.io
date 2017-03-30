@@ -34,8 +34,8 @@ var PlayerPerGame = function(cards){
 //create game excution obj
 var gameExecution = {
 
-  player1:  new Player('Player 1'),   // create player 1 obj
-  player2:  new Player('Player 2'),   // create player 2 obj
+  player1:  new Player('Player-1'),   // create player 1 obj
+  player2:  new Player('Player-2'),   // create player 2 obj
 
   calculatePointForEachGame: function (gamePerPlayer){
     return gamePerPlayer.calculatePoint();  // calculate each ground for each player
@@ -43,37 +43,44 @@ var gameExecution = {
   },
   setPointForCurrentGame: function (playerPoint, player){
     if (playerPoint == 'Triple-Figure-Hand') {
+      player.setSpecialHand(playerPoint);
       playerPoint = 20;  // add 5 point for the winner with Triple-Figure-Hand
       player.setPoint(playerPoint);
-      alert (player.getName() + ':   Congratulation!!! You have a Triple-Figure-Hand.\nYou won 20 points.')
+      alert (player.getName() + ':   Congratulation!!! You have a Triple-Figure-Hand.\nYou won 20 points.');
+
     }
     else if(playerPoint == 'Triple-Hand'){
+      player.setSpecialHand(playerPoint);
       playerPoint =  15;  // add 5 point for the winner with Triple-Figure-Hand
-        player.setPoint(playerPoint);
+      player.setPoint(playerPoint);
       alert (player.getName()  + ':   Congratulation!!! You have Triple-Hand.\nYou won 15 points.')
+
     }
     else if(playerPoint == 'Figure-Hand'){
+      player.setSpecialHand(playerPoint);
       playerPoint =  10;  // add 5 point for the winner with Triple-Figure-Hand
       player.setPoint(playerPoint);
       alert (player.getName() + ':   Congratulation!!! You won a Figure-Hand.\nYou won 10  points.')
+
     }else{
-       player.setPoint(playerPoint);
+      player.setPoint(playerPoint);
+      //  player.setSpecialHand('Figure-Hand');
     }
 
 
   },
 
   setScore: function(player1,player2){
-     if(this.player1.getPoint() > this.player2.getPoint()){
-       player1.increaseScore();
-     }else if (this.player1.getPoint() < this.player2.getPoint()){
-       this.player2.increaseScore();
-     }
-     else if (this.player1.getPoint() == this.player2.getPoint()){
-       //alert('We have a tie! Both players are the same point');
-       this.player2.increaseScore();
-       this.player1.increaseScore();
-     }
+    if(this.player1.getPoint() > this.player2.getPoint()){
+      player1.increaseScore();
+    }else if (this.player1.getPoint() < this.player2.getPoint()){
+      this.player2.increaseScore();
+    }
+    else if (this.player1.getPoint() == this.player2.getPoint()){
+      //alert('We have a tie! Both players are the same point');
+      this.player2.increaseScore();
+      this.player1.increaseScore();
+    }
   },
 
   getPlayer1: function (){
@@ -82,6 +89,14 @@ var gameExecution = {
   getPlayer2: function (){
     return this.player2;
   },
+
+  getPlayer1SpecialHand : function(){
+    return this.player1.getSpecialHand();
+  },
+  getPlayer1SpecialHand : function(){
+    return this.player2.getSpecialHand();
+  },
+
 
   start: function(player1Cards, player2Cards){
     // card1 and cards2 are input taken from UI

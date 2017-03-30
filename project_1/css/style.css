@@ -143,6 +143,27 @@ button{
   text-shadow: -3px 0 1px rgba(31,58,15,1) , 3px 0 1px rgba(0,1,68,1) ;
 }
 
+.tie{
+ color: darkblue;
+  width: 62%;
+  margin-left: 3%;
+  position: absolute;
+  text-align: center;
+  z-index: 3;
+  display:inline-block;
+  background: white;
+  visibility:hidden;
+  background-color: Transparent;
+  font-family: 'Jazz LET', fantasy;
+  font-size: 2.5em;
+  color: #13FF0D;
+  font-weight: bold;
+  text-shadow: -3px 0 1px rgba(31,58,15,1) , 3px 0 1px rgba(0,1,68,1) ;
+
+}
+
+
+
 .shadow{
   color: #C5CFE8;
   text-shadow: -3px 0 1px rgba(31,58,15,1) , 3px 0 1px rgba(0,1,68,1) ;
