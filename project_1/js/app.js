@@ -54,7 +54,7 @@ $(function(){
     },
     // disable element
     disableElement: function ($elem){
-      $elem.css("visibility",'hidden');
+      $elem.css("visibility","hidden");
       //$elem.hide;
     },
     // enable element
@@ -163,7 +163,6 @@ $(function(){
       score.setGameCount();
       // if (score.getGameCount() < numGames) {//
       if (count <= parseInt(numGames)) {//
-
         this.setGameNumer(); // update current game number
         this.dealCards(cards1, cards2);   // get cards for player 2
         gameExecution.start(cards1, cards2); // start executing the  game
@@ -174,7 +173,6 @@ $(function(){
           score1 += 1;
           this.changeElementTextColor(1,0);
           score.setPlayer1Score(1);// set 1 point for player 1 and 0 point for player 2
-          // UI.changeElementText($p1score, "Score: " +score.getPlayer1Score());
           UI.changeElementText($p1score, "Score: " + score1);
         }else  if(parseInt(gameExecution.getPlayer2().getPoint()) > parseInt(gameExecution.getPlayer1().getPoint())){
           UI.changeImgSrc($p1img,"./images/game-lost.png");
@@ -197,7 +195,7 @@ $(function(){
           tieMsg = true;
         }
 
-        if(gameExecution.getPlayer1().isSpecialHand())
+        if(gameExecution.getPlayer1().isSpecialHand()) // special hand cases
         {
           // set figured hand for P1
           this.setFigureHandText($specialHand1,  gameExecution.getPlayer1().getSpecialHand());
@@ -205,7 +203,6 @@ $(function(){
         }
         if (gameExecution.getPlayer2().isSpecialHand())
         {
-
           this.setFigureHandText($specialHand2,  gameExecution.getPlayer2().getSpecialHand())
           p2FigureHand = true;
         }
@@ -284,7 +281,6 @@ $(function(){
     count += 1;
     tieMsg == false;
     p1FigureHand == false;
-    p1FigureHand = false;
     p2FigureHand == false;
     // hide text of p1 figure hand
     App.hideTieText();

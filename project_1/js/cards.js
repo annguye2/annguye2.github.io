@@ -11,7 +11,7 @@ var cards =[
     figure: false,
     figureType: 'none',
     figureClass: 0,
-    url: './images/game_cards/diamond/diamond-ace.jpeg'
+    url: './images/game_cards/diamond/diamond-ace.png'
   },
   {
     name: 'diamond-2',
@@ -20,7 +20,7 @@ var cards =[
     figure: false,
     figureType: 'none',
     figureClass: 0,
-    url: './images/game_cards/diamond/diamond-2.jpeg'
+    url: './images/game_cards/diamond/diamond-2.png'
 
   },
   {
@@ -30,7 +30,7 @@ var cards =[
     figure: false,
     figureType: 'none',
     figureClass: 0,
-    url: './images/game_cards/diamond/diamond-3.jpeg'
+    url: './images/game_cards/diamond/diamond-3.png'
   },
   {
     name: 'diamond-4',
@@ -39,7 +39,7 @@ var cards =[
     figure: false,
     figureType: 'none',
     figureClass: 0,
-    url: './images/game_cards/diamond/diamond-4.jpeg'
+    url: './images/game_cards/diamond/diamond-4.png'
   },
   {
     name: 'diamond-5',
@@ -48,7 +48,7 @@ var cards =[
     figure: false,
     figureType: 'none',
     figureClass: 0,
-    url: './images/game_cards/diamond/diamond-5.jpeg'
+    url: './images/game_cards/diamond/diamond-5.png'
   },
   {
     name: 'diamond-6',
@@ -57,7 +57,7 @@ var cards =[
     figure: false,
     figureType: 'none',
     figureClass: 0,
-    url: './images/game_cards/diamond/diamond-6.jpeg'
+    url: './images/game_cards/diamond/diamond-6.png'
   },
   {
     name: 'diamond-7',
@@ -66,7 +66,7 @@ var cards =[
     figure: false,
     figureType: 'none',
     figureClass: 0,
-    url: './images/game_cards/diamond/diamond-7.jpeg'
+    url: './images/game_cards/diamond/diamond-7.png'
   },
   {
     name: 'diamond-8',
@@ -75,7 +75,7 @@ var cards =[
     figure: false,
     figureType: 'none',
     figureClass: 0,
-    url: './images/game_cards/diamond/diamond-8.jpeg'
+    url: './images/game_cards/diamond/diamond-8.png'
   },
   {
     name: 'diamond-9',
@@ -84,7 +84,7 @@ var cards =[
     figure: false,
     figureType: 'none',
     figureClass: 0,
-    url: './images/game_cards/diamond/diamond-9.jpeg'
+    url: './images/game_cards/diamond/diamond-9.png'
   },
   {
     name: 'diamond-10',
@@ -93,7 +93,7 @@ var cards =[
     figure: false,
     figureType: 'none',
     figureClass: 0,
-    url: './images/game_cards/diamond/diamond-10.jpeg'
+    url: './images/game_cards/diamond/diamond-10.png'
   },
   {
     name: 'diamond-j',
@@ -102,7 +102,7 @@ var cards =[
     figure: true,
     figureType: 'j',
     figureClass: 1,
-    url: './images/game_cards/diamond/diamond-j.jpeg'
+    url: './images/game_cards/diamond/diamond-j.png'
   },
   {
     name: 'diamond-q',
@@ -111,7 +111,7 @@ var cards =[
     figure: true,
     figureType: 'q',
     figureClass: 2,
-    url: './images/game_cards/diamond/diamond-q.jpeg'
+    url: './images/game_cards/diamond/diamond-q.png'
   },
   {
     name: 'diamond-k',
@@ -120,7 +120,7 @@ var cards =[
     figure: true,
     figureType: 'k',
     figureClass: 3,
-    url: './images/game_cards/diamond/diamond-k.jpeg'
+    url: './images/game_cards/diamond/diamond-k.png'
   },
 
 
@@ -132,7 +132,7 @@ var cards =[
     figure: false,
     figureType: 'none',
     figureClass: 0,
-    url: './images/game_cards/heart/heart-ace.jpeg'
+    url: './images/game_cards/heart/heart-ace.png'
   },
   {
     name: 'heart-2',
@@ -141,7 +141,7 @@ var cards =[
     figure: false,
     figureType: 'none',
     figureClass: 0,
-    url: './images/game_cards/heart/heart-2.jpeg'
+    url: './images/game_cards/heart/heart-2.png'
 
   },
   {
@@ -151,7 +151,7 @@ var cards =[
     figure: false,
     figureType: 'none',
     figureClass: 0,
-    url: './images/game_cards/heart/heart-3.jpeg'
+    url: './images/game_cards/heart/heart-3.png'
   },
   {
     name: 'heart-4',
@@ -160,7 +160,7 @@ var cards =[
     figure: false,
     figureType: 'none',
     figureClass: 0,
-    url: './images/game_cards/heart/heart-4.jpeg'
+    url: './images/game_cards/heart/heart-4.png'
   },
   {
     name: 'heart-5',
@@ -169,7 +169,7 @@ var cards =[
     figure: false,
     figureType: 'none',
     figureClass: 0,
-    url: './images/game_cards/heart/heart-5.jpeg'
+    url: './images/game_cards/heart/heart-5.png'
   },
   {
     name: 'heart-6',
@@ -178,7 +178,7 @@ var cards =[
     figure: false,
     figureType: 'none',
     figureClass: 0,
-    url: './images/game_cards/heart/heart-6.jpeg'
+    url: './images/game_cards/heart/heart-6.png'
   },
   {
     name: 'heart-7',
@@ -187,7 +187,7 @@ var cards =[
     figure: false,
     figureType: 'none',
     figureClass: 0,
-    url: './images/game_cards/heart/heart-7.jpeg'
+    url: './images/game_cards/heart/heart-7.png'
   },
   {
     name: 'heart-8',
@@ -196,7 +196,7 @@ var cards =[
     figure: false,
     figureType: 'none',
     figureClass: 0,
-    url: './images/game_cards/heart/heart-8.jpeg'
+    url: './images/game_cards/heart/heart-8.png'
   },
   {
     name: 'heart-9',
@@ -204,7 +204,7 @@ var cards =[
     point: 9,
     figure: false,
     figureType: 'none',
-    url: './images/game_cards/heart/heart-9.jpeg'
+    url: './images/game_cards/heart/heart-9.png'
   },
   {
     name: 'heart-10',
@@ -213,7 +213,7 @@ var cards =[
     figure: false,
     figureType: 'none',
     figureClass: 0,
-    url: './images/game_cards/heart/heart-10.jpeg'
+    url: './images/game_cards/heart/heart-10.png'
   },
   {
     name: 'heart-j',
@@ -222,7 +222,7 @@ var cards =[
     figure: true,
     figureType: 'j',
     figureClass: 1,
-    url: './images/game_cards/heart/heart-j.jpeg'
+    url: './images/game_cards/heart/heart-j.png'
   },
   {
     name: 'heart-q',
@@ -231,7 +231,7 @@ var cards =[
     figure: true,
     figureType: 'q',
     figureClass: 2,
-    url: './images/game_cards/heart/heart-q.jpeg'
+    url: './images/game_cards/heart/heart-q.png'
   },
   {
     name: 'heart-k',
@@ -240,7 +240,7 @@ var cards =[
     figure: true,
     figureType: 'k',
     figureClass: 3,
-    url: './images/game_cards/heart/heart-k.jpeg'
+    url: './images/game_cards/heart/heart-k.png'
   },
 
   //Ground spade
@@ -251,7 +251,7 @@ var cards =[
     figure: false,
     figureType: 'none',
     figureClass: 0,
-    url: './images/game_cards/spade/spade-ace.jpeg'
+    url: './images/game_cards/spade/spade-ace.png'
   },
   {
     name: 'spade-2',
@@ -260,7 +260,7 @@ var cards =[
     figure: false,
     figureType: 'none',
     figureClass: 0,
-    url: './images/game_cards/spade/spade-2.jpeg'
+    url: './images/game_cards/spade/spade-2.png'
 
   },
   {
@@ -270,7 +270,7 @@ var cards =[
     figure: false,
     figureType: 'none',
     figureClass: 0,
-    url: './images/game_cards/spade/spade-3.jpeg'
+    url: './images/game_cards/spade/spade-3.png'
   },
   {
     name: 'spade-4',
@@ -279,7 +279,7 @@ var cards =[
     figure: false,
     figureType: 'none',
     figureClass: 0,
-    url: './images/game_cards/spade/spade-4.jpeg'
+    url: './images/game_cards/spade/spade-4.png'
   },
   {
     name: 'spade-5',
@@ -288,7 +288,7 @@ var cards =[
     figure: false,
     figureType: 'none',
     figureClass: 0,
-    url: './images/game_cards/spade/spade-5.jpeg'
+    url: './images/game_cards/spade/spade-5.png'
   },
   {
     name: 'spade-6',
@@ -297,7 +297,7 @@ var cards =[
     figure: false,
     figureType: 'none',
     figureClass: 0,
-    url: './images/game_cards/spade/spade-6.jpeg'
+    url: './images/game_cards/spade/spade-6.png'
   },
   {
     name: 'spade-7',
@@ -306,7 +306,7 @@ var cards =[
     figure: false,
     figureType: 'none',
     figureClass: 0,
-    url: './images/game_cards/spade/spade-7.jpeg'
+    url: './images/game_cards/spade/spade-7.png'
   },
   {
     name: 'spade-8',
@@ -315,7 +315,7 @@ var cards =[
     figure: false,
     figureType: 'none',
     figureClass: 0,
-    url: './images/game_cards/spade/spade-8.jpeg'
+    url: './images/game_cards/spade/spade-8.png'
   },
   {
     name: 'spade-9',
@@ -324,7 +324,7 @@ var cards =[
     figure: false,
     figureType: 'none',
     figureClass: 0,
-    url: './images/game_cards/spade/spade-9.jpeg'
+    url: './images/game_cards/spade/spade-9.png'
   },
   {
     name: 'spade-10',
@@ -333,7 +333,7 @@ var cards =[
     figure: false,
     figureType: 'none',
     figureClass: 0,
-    url: './images/game_cards/spade/spade-10.jpeg'
+    url: './images/game_cards/spade/spade-10.png'
   },
   {
     name: 'spade-j',
@@ -342,7 +342,7 @@ var cards =[
     figure: true,
     figureType: 'j',
     figureClass: 1,
-    url: './images/game_cards/spade/spade-j.jpeg'
+    url: './images/game_cards/spade/spade-j.png'
   },
   {
     name: 'spade-q',
@@ -351,7 +351,7 @@ var cards =[
     figure: true,
     figureType: 'q',
     figureClass: 2,
-    url: './images/game_cards/spade/spade-q.jpeg'
+    url: './images/game_cards/spade/spade-q.png'
   },
   {
     name: 'spade-k',
@@ -360,7 +360,7 @@ var cards =[
     figure: true,
     figureType: 'k',
     figureClass: 3,
-    url: './images/game_cards/spade/spade-k.jpeg'
+    url: './images/game_cards/spade/spade-k.png'
   },
 
   //Ground club
@@ -371,7 +371,7 @@ var cards =[
     figure: false,
     figureType: 'none',
     figureClass: 0,
-    url: './images/game_cards/club/club-ace.jpeg'
+    url: './images/game_cards/club/club-ace.png'
   },
   {
     name: 'club-2',
@@ -380,7 +380,7 @@ var cards =[
     figure: false,
     figureType: 'none',
     figureClass: 0,
-    url: './images/game_cards/club/club-2.jpeg'
+    url: './images/game_cards/club/club-2.png'
 
   },
   {
@@ -390,7 +390,7 @@ var cards =[
     figure: false,
     figureType: 'none',
     figureClass: 0,
-    url: './images/game_cards/club/club-3.jpeg'
+    url: './images/game_cards/club/club-3.png'
   },
   {
     name: 'club-4',
@@ -399,7 +399,7 @@ var cards =[
     figure: false,
     figureType: 'none',
     figureClass: 0,
-    url: './images/game_cards/club/club-4.jpeg'
+    url: './images/game_cards/club/club-4.png'
   },
   {
     name: 'club-5',
@@ -408,7 +408,7 @@ var cards =[
     figure: false,
     figureType: 'none',
     figureClass: 0,
-    url: './images/game_cards/club/club-5.jpeg'
+    url: './images/game_cards/club/club-5.png'
   },
   {
     name: 'club-6',
@@ -417,7 +417,7 @@ var cards =[
     figure: false,
     figureType: 'none',
     figureClass: 0,
-    url: './images/game_cards/club/club-6.jpeg'
+    url: './images/game_cards/club/club-6.png'
   },
   {
     name: 'club-7',
@@ -425,7 +425,7 @@ var cards =[
     point: 7,
     figure: false,
     figureType: 'none',
-    url: './images/game_cards/club/club-7.jpeg'
+    url: './images/game_cards/club/club-7.png'
   },
   {
     name: 'club-8',
@@ -434,7 +434,7 @@ var cards =[
     figure: false,
     figureType: 'none',
     figureClass: 0,
-    url: './images/game_cards/club/club-8.jpeg'
+    url: './images/game_cards/club/club-8.png'
   },
   {
     name: 'club-9',
@@ -443,7 +443,7 @@ var cards =[
     figure: false,
     figureType: 'none',
     figureClass: 0,
-    url: './images/game_cards/club/club-9.jpeg'
+    url: './images/game_cards/club/club-9.png'
   },
   {
     name: 'club-10',
@@ -452,7 +452,7 @@ var cards =[
     figure: false,
     figureType: 'none',
     figureClass: 0,
-    url: './images/game_cards/club/club-10.jpeg'
+    url: './images/game_cards/club/club-10.png'
   },
   {
     name: 'club-j',
@@ -461,7 +461,7 @@ var cards =[
     figure: true,
     figureType: 'j',
     figureClass: 1,
-    url: './images/game_cards/club/club-j.jpeg'
+    url: './images/game_cards/club/club-j.png'
   },
   {
     name: 'club-q',
@@ -470,7 +470,7 @@ var cards =[
     figure: true,
     figureType: 'q',
     figureClass: 1,
-    url: './images/game_cards/club/club-q.jpeg'
+    url: './images/game_cards/club/club-q.png'
   },
   {
     name: 'club-k',
@@ -479,7 +479,7 @@ var cards =[
     figure: true,
     figureType: 'k',
     figureClass: 2,
-    url: './images/game_cards/club/club-k.jpeg'
+    url: './images/game_cards/club/club-k.png'
   }
 
 ]// end of card object
